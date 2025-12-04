@@ -8,7 +8,7 @@ import { colorListFR, colorListXFR } from './data/colorLists.js';
 import { normalizeWords } from './utils/normalizeWords.js';
 import { chunk } from './utils/chunk.js';
 import { restrictedBrand, realBrand } from './data/brand.js';
-import materialListFR from './data/materialsFR.json';
+import materialListFR from './data/materials.json';
 
 
 const { 
