@@ -1,10 +1,10 @@
-import getToken from './getAccessToken.js'
+import getAccessToken from './getAccessToken.js'
 
 async function fetchInventoryItems() {    
   const allItems = [];
   let offset = 0;
   const limit = 200; // Max autorisé pour cet endpoint
-  const token = await getToken();
+  const token = await getAccessToken();
 
   while (true) {
     const res = await fetch(
