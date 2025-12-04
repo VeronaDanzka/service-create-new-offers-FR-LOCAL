@@ -51,14 +51,15 @@ const {
 async function getCategoryChainForProduct(categoryName) {
   // CTE récursive pour remonter dans la table category
   // en partant de name = categoryName
+  const table = `category_${SUPPLIER_BASE}`;
   const categories = await sql`
     WITH RECURSIVE cat_path (id, name, parent_name, depth) AS (
       SELECT id, name, parent_name, 1
-        FROM category_${SUPPLIER_BASE}
+        FROM ${table}
        WHERE name = ${categoryName}
       UNION ALL
       SELECT c.id, c.name, c.parent_name, cp.depth + 1
-        FROM category_${SUPPLIER_BASE} AS c
+        FROM ${table} AS c
         JOIN cat_path             AS cp
           ON c.name = cp.parent_name
     )
@@ -81,18 +82,20 @@ async function createDataItems(newListing, supplier){
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
+              const table = `category_${SUPPLIER_BASE}_translate`;
               const translations = await sql`
                   SELECT name, lang
-                  FROM category_${SUPPLIER_BASE}_translate
+                  FROM ${table}
                   WHERE category_name = ${category.name};
               `;
               return {
                   translations
               };
             }))
+        const productTable = `products_${SUPPLIER_BASE}_translate`;
         const [row] = await sql`
           SELECT name, description
-          FROM products_${SUPPLIER_BASE}_translate
+          FROM ${productTable}
           WHERE sku = ${sku}
             AND lang = 'fr';
         `;
@@ -105,7 +108,8 @@ async function createDataItems(newListing, supplier){
             .filter(Boolean)
             .join(' ');
         const matchEbayCat = mappingEbayCategories.find(data => data.rawPathFR === catalogRawPathFR)
-        const rowsCats = await sql`SELECT name FROM category_${SUPPLIER_BASE}_translate
+        const catTable = `category_${SUPPLIER_BASE}_translate`;
+        const rowsCats = await sql`SELECT name FROM ${catTable}
                                                   WHERE category_name = ${category_id}
                                                     AND lang = 'fr';`
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
@@ -252,18 +256,20 @@ async function createDataItems(newListing, supplier){
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
+              const table = `category_${SUPPLIER_BASE}_translate`;
               const translations = await sql`
                   SELECT name, lang
-                  FROM category_${SUPPLIER_BASE}_translate
+                  FROM ${table}
                   WHERE category_name = ${category.name};
               `;
               return {
                   translations
               };
             }))
+        const productTable = `products_${SUPPLIER_1}_translate`;
         const [row] = await sql`
           SELECT name, description
-          FROM products_${SUPPLIER_1}_translate
+          FROM ${productTable}
           WHERE sku = ${sku}
             AND lang = 'fr';
         `;
@@ -287,7 +293,8 @@ async function createDataItems(newListing, supplier){
             .filter(Boolean)
             .join(' ');
         const matchEbayCat = mappingEbayCategories.find(data => data.rawPathFR === catalogRawPathFR)
-        const rowsCats = await sql`SELECT name FROM category_${SUPPLIER_BASE}_translate
+        const catTable = `category_${SUPPLIER_BASE}_translate`;
+        const rowsCats = await sql`SELECT name FROM ${catTable}
                                                   WHERE category_name = ${category_id}
                                                     AND lang = 'fr';`
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
@@ -445,8 +452,10 @@ async function createNewItems() {
   const suppX_sku = `-${SUPPLIER_1}-FR-LOCAL`
   const normalizeSkuFRD = sku => sku.replace(suppD_sku, '');
   const normalizeSkuFRX = sku => sku.replace(suppX_sku, '');
-  const catalogItemsD   = await sql`SELECT * FROM products_${SUPPLIER_BASE}`;
-  const catalogItemsX   = await sql`SELECT * FROM products_${SUPPLIER_1}`;
+  const tableD = `products_${SUPPLIER_BASE}`;
+  const tableX = `products_${SUPPLIER_1}`;
+  const catalogItemsD   = await sql`SELECT * FROM ${tableD}`;
+  const catalogItemsX   = await sql`SELECT * FROM ${tableX}`;
   const newListingD     = catalogItemsD.filter(
     item => !items.some(i => normalizeSkuFRD(i.sku) === item.sku)
   );
