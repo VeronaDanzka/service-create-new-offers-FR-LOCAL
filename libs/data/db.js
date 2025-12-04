@@ -2,16 +2,37 @@ import { Pool } from 'pg';
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  // Optionnel : SSL si Railway/Supabase/etc.
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
-export async function sql(strings, ...params) {
+// sql`SELECT * FROM table WHERE id=${id}`
+// sql([`SELECT * FROM table WHERE id=$1`], id)
+export const sql = async (strings, ...params) => {
   const client = await pool.connect();
   try {
-    const text = strings.reduce((acc, str, i) => acc + str + (i < params.length ? `$${i + 1}` : ''), '');
-    const res = await client.query(text, params);
-    return res.rows;
+
+    let text;
+
+    // 🟦 MODE 1 : tagged template
+    if (Array.isArray(strings) && strings.raw !== undefined) {
+      text = strings.reduce(
+        (acc, part, i) => acc + part + (i < params.length ? `$${i + 1}` : ''),
+        ''
+      );
+    }
+
+    // 🟩 MODE 2 : sql([query], ...params)
+    else if (Array.isArray(strings) && strings.raw === undefined) {
+      text = strings[0]; // On ne touche pas au SQL, il contient déjà $1, $2...
+    }
+
+    else {
+      throw new Error("Invalid sql() call");
+    }
+
+    const result = await client.query(text, params);
+    return result.rows;
+
   } finally {
     client.release();
   }
