@@ -82,23 +82,21 @@ async function createDataItems(newListing, supplier){
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
-              const table = `category_${SUPPLIER_BASE}_translate`;
-              const translations = await sql`
-                  SELECT name, lang
-                  FROM ${table}
-                  WHERE category_name = ${category.name};
-              `;
+              const requestCat = `SELECT name, lang
+                            FROM category_${SUPPLIER_BASE}_translate
+                            WHERE category_name = $1;`;
+              const translations = await sql([requestCat], category.name);
               return {
                   translations
               };
             }))
-        const productTable = `products_${SUPPLIER_BASE}_translate`;
-        const [row] = await sql`
+        const requestProduct = `
           SELECT name, description
-          FROM ${productTable}
-          WHERE sku = ${sku}
+          FROM products_${SUPPLIER_BASE}_translate
+          WHERE sku = $1
             AND lang = 'fr';
         `;
+        const [row] = await sql([requestProduct], sku);
         if (!row) continue; 
         if(!row.name && !row.description) continue;
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
@@ -108,10 +106,10 @@ async function createDataItems(newListing, supplier){
             .filter(Boolean)
             .join(' ');
         const matchEbayCat = mappingEbayCategories.find(data => data.rawPathFR === catalogRawPathFR)
-        const catTable = `category_${SUPPLIER_BASE}_translate`;
-        const rowsCats = await sql`SELECT name FROM ${catTable}
-                                                  WHERE category_name = ${category_id}
-                                                    AND lang = 'fr';`
+        const requestCat = `SELECT name FROM category_${SUPPLIER_BASE}_translate
+                          WHERE category_name = $1
+                            AND lang = 'fr'`;
+        const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
         if(!categoryFR || !matchEbayCat || !cloud_img) continue;
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
@@ -256,23 +254,21 @@ async function createDataItems(newListing, supplier){
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
-              const table = `category_${SUPPLIER_BASE}_translate`;
-              const translations = await sql`
-                  SELECT name, lang
-                  FROM ${table}
-                  WHERE category_name = ${category.name};
-              `;
+              const requestCat = `SELECT name, lang
+                            FROM category_${SUPPLIER_BASE}_translate
+                            WHERE category_name = $1;`;
+              const translations = await sql([requestCat], category.name);
               return {
                   translations
               };
             }))
-        const productTable = `products_${SUPPLIER_1}_translate`;
-        const [row] = await sql`
+        const requestProduct = `
           SELECT name, description
-          FROM ${productTable}
-          WHERE sku = ${sku}
+          FROM products_${SUPPLIER_1}_translate
+          WHERE sku = $1
             AND lang = 'fr';
         `;
+        const [row] = await sql([requestProduct], sku);
         if (!row || !row.name || !row.description) continue; 
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
         const translatedDescription = removeIframes(row.description)
@@ -293,10 +289,10 @@ async function createDataItems(newListing, supplier){
             .filter(Boolean)
             .join(' ');
         const matchEbayCat = mappingEbayCategories.find(data => data.rawPathFR === catalogRawPathFR)
-        const catTable = `category_${SUPPLIER_BASE}_translate`;
-        const rowsCats = await sql`SELECT name FROM ${catTable}
-                                                  WHERE category_name = ${category_id}
-                                                    AND lang = 'fr';`
+        const requestCat = `SELECT name FROM category_${SUPPLIER_BASE}_translate
+                          WHERE category_name = $1
+                            AND lang = 'fr'`;
+        const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
         if(!categoryFR || !matchEbayCat || !cloud_img) continue;
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
@@ -454,8 +450,8 @@ async function createNewItems() {
   const normalizeSkuFRX = sku => sku.replace(suppX_sku, '');
   const tableD = `products_${SUPPLIER_BASE}`;
   const tableX = `products_${SUPPLIER_1}`;
-  const catalogItemsD   = await sql`SELECT * FROM ${tableD}`;
-  const catalogItemsX   = await sql`SELECT * FROM ${tableX}`;
+  const catalogItemsD   = await sql([`SELECT * FROM ${tableD}`]);
+  const catalogItemsX   = await sql([`SELECT * FROM ${tableX}`]);
   const newListingD     = catalogItemsD.filter(
     item => !items.some(i => normalizeSkuFRD(i.sku) === item.sku)
   );
