@@ -1,4 +1,4 @@
-import getAccessToken from './getAccessToken.js'
+import { getAccessToken } from './getAccessToken.js'
 
 async function fetchInventoryItems() {    
   const allItems = [];
