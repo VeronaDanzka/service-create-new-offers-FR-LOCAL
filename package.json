@@ -1,0 +1,12 @@
+{
+  "name": "xbunny",
+  "type": "module",
+  "version": "0.0.2",
+  "scripts": {
+    "ebay:createItems": "node ./createNewItems.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "pg": "^8.16.0"
+  }
+}
