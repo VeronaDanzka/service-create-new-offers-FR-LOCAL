@@ -3,12 +3,12 @@ import { getAuthHeaders } from './utils/getAuthHeaders.js';
 import { priceMarginD, priceMarginX } from './utils/calculatePricing.js';
 import { removeIframes } from './utils/removeIframe.js';
 import getEbayItems from './getEbayItems.js'
-import mappingEbayCategories from './data/mappingEbayCategories.json' assert { type: "json" };
+import mappingEbayCategories from './data/mappingEbayCategories.json' with { type: "json" };
 import { colorListFR, colorListXFR } from './data/colorLists.js';
 import { normalizeWords } from './utils/normalizeWords.js';
 import { chunk } from './utils/chunk.js';
 import { restrictedBrand, realBrand } from './data/brand.js';
-import materialListFR from './data/materials.json' assert { type: "json" };
+import materialListFR from './data/materials.json' with { type: "json" };
 
 
 const { 
