@@ -452,6 +452,8 @@ async function createNewItems() {
   const tableX = `products_${SUPPLIER_1}`;
   const catalogItemsD   = await sql([`SELECT * FROM ${tableD}`]);
   const catalogItemsX   = await sql([`SELECT * FROM ${tableX}`]);
+  console.log(catalogItemsD)
+  console.log(catalogItemsX)
   const newListingD     = catalogItemsD.filter(
     item => !items.some(i => normalizeSkuFRD(i.sku) === item.sku)
   );
