@@ -31,6 +31,8 @@ export const sql = async (strings, ...params) => {
     }
 
     const result = await client.query(text, params);
+    console.log("QUERY =", strings);
+    console.log("PARAMS =", params);
     return result.rows;
 
   } finally {
