@@ -78,8 +78,7 @@ async function createDataItems(newListing, supplier){
   if(supplier === SUPPLIER_BASE){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, size, cloud_img } of newListing){
       try {
-        if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())){
-          console.log('on continue pas de stock ou marque restreinte') 
+        if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())){ 
           continue};
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
@@ -100,11 +99,9 @@ async function createDataItems(newListing, supplier){
         `;
         const [row] = await sql([requestProduct], [sku]);
         if (!row){
-          console.log('on continue pas de row')
           continue; 
         }
         if(!row.name && !row.description){
-          console.log('on continue pas de name et description')
           continue};
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
         const translatedDescription = removeIframes(row.description)
@@ -260,7 +257,6 @@ async function createDataItems(newListing, supplier){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, length, insertable, diameter, circumference, gender, liquidvolumn, size, cloud_img } of newListing){
       try {
         if (stock === 0 || !brand || restrictedBrand.includes(brand.toUpperCase())){
-          console.log('on continue pas de stock ou marque restreinte')
           continue;
         };
         const { categories } = await getCategoryChainForProduct(category_id)
@@ -282,7 +278,6 @@ async function createDataItems(newListing, supplier){
         `;
         const [row] = await sql([requestProduct], [sku]);
         if (!row || !row.name || !row.description){
-          console.log('on continue pas de row ou pas de name ou pas de description')
           continue;
         } 
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
