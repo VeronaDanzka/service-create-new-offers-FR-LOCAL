@@ -244,8 +244,8 @@ async function createDataItems(newListing, supplier){
         console.error(`Error processing SKU ${sku}:`, error);
         continue; // Passe au prochain élément en cas d'erreur
       }
-      return { payloadsInventoryArrayD, payloadsOffersArrayD }
     }
+    return { payloadsInventoryArrayD, payloadsOffersArrayD }
   }
   if(supplier === SUPPLIER_1){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, length, insertable, diameter, circumference, gender, liquidvolumn, size, cloud_img } of newListing){
