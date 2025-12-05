@@ -66,7 +66,7 @@ async function getCategoryChainForProduct(categoryName) {
       FROM cat_path
      ORDER BY depth;
   `;
-  const categories = await sql([requestCat], [categoryName])
+  const categories = await sql([requestCat], categoryName)
 
   return { categories };
 }
@@ -86,7 +86,7 @@ async function createDataItems(newListing, supplier){
               const requestCat = `SELECT name, lang
                             FROM category_${SUPPLIER_BASE}_translate
                             WHERE category_name = $1;`;
-              const translations = await sql([requestCat],[category.name]);
+              const translations = await sql([requestCat],category.name);
               return {
                   translations
               };
@@ -97,7 +97,7 @@ async function createDataItems(newListing, supplier){
           WHERE sku = $1
             AND lang = 'fr';
         `;
-        const [row] = await sql([requestProduct], [sku]);
+        const [row] = await sql([requestProduct], sku);
         if (!row){
           continue; 
         }
@@ -113,7 +113,7 @@ async function createDataItems(newListing, supplier){
         const requestCat = `SELECT name FROM category_${SUPPLIER_BASE}_translate
                           WHERE category_name = $1
                             AND lang = 'fr'`;
-        const rowsCats = await sql([requestCat], [category_id]);
+        const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
         if(!categoryFR || !matchEbayCat || !cloud_img){
           console.log('on continue pas de categoryFR ou matchEbayCat ou cloud_img')
@@ -265,7 +265,7 @@ async function createDataItems(newListing, supplier){
               const requestCat = `SELECT name, lang
                             FROM category_${SUPPLIER_BASE}_translate
                             WHERE category_name = $1;`;
-              const translations = await sql([requestCat], [category.name]);
+              const translations = await sql([requestCat], category.name);
               return {
                   translations
               };
@@ -276,7 +276,7 @@ async function createDataItems(newListing, supplier){
           WHERE sku = $1
             AND lang = 'fr';
         `;
-        const [row] = await sql([requestProduct], [sku]);
+        const [row] = await sql([requestProduct], sku);
         if (!row || !row.name || !row.description){
           continue;
         } 
@@ -302,7 +302,7 @@ async function createDataItems(newListing, supplier){
         const requestCat = `SELECT name FROM category_${SUPPLIER_BASE}_translate
                           WHERE category_name = $1
                             AND lang = 'fr'`;
-        const rowsCats = await sql([requestCat], [category_id]);
+        const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
         if(!categoryFR || !matchEbayCat || !cloud_img) continue;
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
