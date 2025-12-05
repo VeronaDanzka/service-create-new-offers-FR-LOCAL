@@ -78,7 +78,9 @@ async function createDataItems(newListing, supplier){
   if(supplier === SUPPLIER_BASE){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, size, cloud_img } of newListing){
       try {
-        if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())) continue;
+        if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())){
+          console.log('on continue pas de stock ou marque restreinte') 
+          continue};
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
@@ -97,8 +99,13 @@ async function createDataItems(newListing, supplier){
             AND lang = 'fr';
         `;
         const [row] = await sql([requestProduct], sku);
-        if (!row) continue; 
-        if(!row.name && !row.description) continue;
+        if (!row){
+          console.log('on continue pas de row')
+          continue; 
+        }
+        if(!row.name && !row.description){
+          console.log('on continue pas de name et description')
+          continue};
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
         const translatedDescription = removeIframes(row.description)
         const catalogRawPathFR = translatedCategories
@@ -111,7 +118,9 @@ async function createDataItems(newListing, supplier){
                             AND lang = 'fr'`;
         const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
-        if(!categoryFR || !matchEbayCat || !cloud_img) continue;
+        if(!categoryFR || !matchEbayCat || !cloud_img){
+          console.log('on continue pas de categoryFR ou matchEbayCat ou cloud_img')
+          continue;}
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
         let departmentFR = 'Unisexe'
         if(rawPathFR.includes('homme')){
@@ -250,7 +259,10 @@ async function createDataItems(newListing, supplier){
   if(supplier === SUPPLIER_1){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, length, insertable, diameter, circumference, gender, liquidvolumn, size, cloud_img } of newListing){
       try {
-        if (stock === 0 || !brand || restrictedBrand.includes(brand.toUpperCase())) continue;
+        if (stock === 0 || !brand || restrictedBrand.includes(brand.toUpperCase())){
+          console.log('on continue pas de stock ou marque restreinte')
+          continue;
+        };
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
@@ -269,7 +281,10 @@ async function createDataItems(newListing, supplier){
             AND lang = 'fr';
         `;
         const [row] = await sql([requestProduct], sku);
-        if (!row || !row.name || !row.description) continue; 
+        if (!row || !row.name || !row.description){
+          console.log('on continue pas de row ou pas de name ou pas de description')
+          continue;
+        } 
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
         const translatedDescription = removeIframes(row.description)
         const dimensions = [
