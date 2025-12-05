@@ -468,7 +468,8 @@ async function createNewItems() {
   const newListingX     = catalogItemsX.filter(
     item => !items.some(i => normalizeSkuFRX(i.sku) === item.sku)
   );
-
+  console.log(`Nouveaux produits à créer pour ${SUPPLIER_BASE} : `, newListingD.length);
+  console.log(`Nouveaux produits à créer pour ${SUPPLIER_1} : `, newListingX.length);
   const { payloadsInventoryArrayD, payloadsOffersArrayD } =
     await createDataItems(newListingD, SUPPLIER_BASE);
   const { payloadsInventoryArrayX, payloadsOffersArrayX } =
