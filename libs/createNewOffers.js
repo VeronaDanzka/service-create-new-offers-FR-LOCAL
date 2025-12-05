@@ -474,6 +474,10 @@ async function createNewItems() {
     await createDataItems(newListingD, SUPPLIER_BASE);
   const { payloadsInventoryArrayX, payloadsOffersArrayX } =
     await createDataItems(newListingX, SUPPLIER_1);
+  console.log(`Payloads INVENTORY à créer pour ${SUPPLIER_BASE} : `, payloadsInventoryArrayD.length);
+  console.log(`Payloads OFFERS à créer pour ${SUPPLIER_BASE} : `, payloadsOffersArrayD.length);
+  console.log(`Payloads INVENTORY à créer pour ${SUPPLIER_1} : `, payloadsInventoryArrayX.length);
+  console.log(`Payloads OFFERS à créer pour ${SUPPLIER_1} : `, payloadsOffersArrayX.length);
   const payloadsFullInventory = [...payloadsInventoryArrayD, ...payloadsInventoryArrayX];
   const payloadsFullOffers     = [...payloadsOffersArrayD,     ...payloadsOffersArrayX];
   /* ------------------------------------------------------------------ */
