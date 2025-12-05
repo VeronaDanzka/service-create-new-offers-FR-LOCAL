@@ -51,15 +51,14 @@ const {
 async function getCategoryChainForProduct(categoryName) {
   // CTE récursive pour remonter dans la table category
   // en partant de name = categoryName
-  const table = `category_${SUPPLIER_BASE}`;
-  const categories = await sql`
+  const requestCat = `
     WITH RECURSIVE cat_path (id, name, parent_name, depth) AS (
       SELECT id, name, parent_name, 1
-        FROM ${table}
-       WHERE name = ${categoryName}
+        FROM category_${SUPPLIER_BASE}
+       WHERE name = $1
       UNION ALL
       SELECT c.id, c.name, c.parent_name, cp.depth + 1
-        FROM ${table} AS c
+        FROM category_${SUPPLIER_BASE} AS c
         JOIN cat_path             AS cp
           ON c.name = cp.parent_name
     )
@@ -67,6 +66,7 @@ async function getCategoryChainForProduct(categoryName) {
       FROM cat_path
      ORDER BY depth;
   `;
+  const categories = await sql([requestCat], [categoryName])
 
   return { categories };
 }
