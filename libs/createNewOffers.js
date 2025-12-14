@@ -116,9 +116,12 @@ async function createDataItems(newListing, supplier){
         const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
         if(!categoryFR || !matchEbayCat || !cloud_img){
-          console.log('on continue pas de categoryFR ou matchEbayCat ou cloud_img')
-          continue;}
+          continue;
+        }
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
+        if((rawPathFR.toLowerCase().includes("vagin") && rawPathFR.toLowerCase().includes("sextoys")) || rawPathFR.toLowerCase().includes("poupée") || rawPathFR.toLowerCase().includes("réaliste")){
+          continue;
+        }
         let departmentFR = 'Unisexe'
         if(rawPathFR.includes('homme')){
           departmentFR = 'Homme'
