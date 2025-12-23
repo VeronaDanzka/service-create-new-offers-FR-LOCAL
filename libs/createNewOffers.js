@@ -284,9 +284,11 @@ async function createDataItems(newListing, supplier){
             AND lang = 'fr';
         `;
         const [row] = await sql([requestProduct], sku);
-        if (!row || !row.name || !row.description){
-          continue;
-        } 
+        if (!row){
+          continue; 
+        }
+        if(!row.name && !row.description){
+          continue};
         const translatedName = row.name.length > 80 ? row.name.replace(brand, '') : row.name
         const translatedDescription = removeIframes(row.description)
         const dimensions = [
