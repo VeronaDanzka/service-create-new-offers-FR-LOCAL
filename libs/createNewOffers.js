@@ -197,7 +197,7 @@ async function createDataItems(newListing, supplier){
               {
                 categoryId: category_idFR,
                 format: "FIXED_PRICE",
-                hideBuyerDetails: true,
+                hideBuyerDetails: false,
                 includeCatalogProductDetails: true,
                 listingDescription: translatedDescription,
                 listingDuration: "GTC",
@@ -400,7 +400,7 @@ async function createDataItems(newListing, supplier){
               {
                 categoryId: category_idFR,
                 format: "FIXED_PRICE",
-                hideBuyerDetails: true,
+                hideBuyerDetails: false,
                 includeCatalogProductDetails: true,
                 listingDescription: normalizedDescription,
                 listingDuration: "GTC",
