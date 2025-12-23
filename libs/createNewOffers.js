@@ -266,7 +266,7 @@ async function createDataItems(newListing, supplier){
         if (brand == null || typeof brand !== 'string') {
           console.log('BRAND INVALIDE:', sku, brand);
         }
-        if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())){ 
+        if (stock === 0 || !brand || restrictedBrand.includes(brand.toUpperCase())){ 
           continue};
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
