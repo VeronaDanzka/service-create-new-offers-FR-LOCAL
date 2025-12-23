@@ -263,9 +263,8 @@ async function createDataItems(newListing, supplier){
   if(supplier === SUPPLIER_1){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, length, insertable, diameter, circumference, gender, liquidvolumn, size, cloud_img } of newListing){
       try {
-        if (stock === 0 || !brand || restrictedBrand.includes(brand.toUpperCase())){
-          continue;
-        };
+        if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())){ 
+          continue};
         const { categories } = await getCategoryChainForProduct(category_id)
         const translatedCategories = await Promise.all(
             categories.map(async category => {
