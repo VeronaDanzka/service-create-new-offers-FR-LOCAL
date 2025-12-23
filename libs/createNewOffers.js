@@ -313,6 +313,12 @@ async function createDataItems(newListing, supplier){
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
         if(!categoryFR || !matchEbayCat || !cloud_img) continue;
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
+        if((rawPathFR.toLowerCase().includes("vagin") && rawPathFR.toLowerCase().includes("sextoys")) || rawPathFR.toLowerCase().includes("poupée") || rawPathFR.toLowerCase().includes("réaliste") || rawPathFR.toLowerCase().includes("pénis")){
+          continue;
+        }
+        if(translatedName.toLowerCase().includes("poupée") || translatedName.toLowerCase().includes("réaliste") || translatedName.toLowerCase().includes("vagin") || translatedName.toLowerCase().includes("anal") || translatedName.toLowerCase().includes("pénis")){
+          continue;
+        }
         let departmentFR = 'Unisexe'
         if(gender === 'Male'){
           departmentFR = 'Homme'
@@ -468,8 +474,8 @@ async function createNewItems() {
   const normalizeSkuFRX = sku => sku.replace(suppX_sku, '');
   const tableD = `products_${SUPPLIER_BASE}`;
   const tableX = `products_${SUPPLIER_1}`;
-  const catalogItemsD   = await sql([`SELECT * FROM ${tableD}`]);
-  const catalogItemsX   = await sql([`SELECT * FROM ${tableX}`]);
+  const catalogItemsD   = await sql([`SELECT * FROM ${tableD} where ebay_fr is false`]);
+  const catalogItemsX   = await sql([`SELECT * FROM ${tableX} where ebay_fr is false`]);
   const newListingD     = catalogItemsD.filter(
     item => !items.some(i => normalizeSkuFRD(i.sku) === item.sku)
   );
