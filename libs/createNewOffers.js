@@ -119,7 +119,10 @@ async function createDataItems(newListing, supplier){
           continue;
         }
         const { category_idFR = null, rawPathFR = null, TypeFR = null, BaseFR = null, StyleFR = null, ProduitFR = null } = matchEbayCat
-        if((rawPathFR.toLowerCase().includes("vagin") && rawPathFR.toLowerCase().includes("sextoys")) || rawPathFR.toLowerCase().includes("poupée") || rawPathFR.toLowerCase().includes("réaliste")){
+        if((rawPathFR.toLowerCase().includes("vagin") && rawPathFR.toLowerCase().includes("sextoys")) || rawPathFR.toLowerCase().includes("poupée") || rawPathFR.toLowerCase().includes("réaliste") || rawPathFR.toLowerCase().includes("pénis")){
+          continue;
+        }
+        if(translatedName.toLowerCase().includes("poupée") || translatedName.toLowerCase().includes("réaliste") || translatedName.toLowerCase().includes("vagin") || translatedName.toLowerCase().includes("anal") || translatedName.toLowerCase().includes("pénis")){
           continue;
         }
         let departmentFR = 'Unisexe'
@@ -149,6 +152,7 @@ async function createDataItems(newListing, supplier){
         const shippingProfile = SHIPPINGPROFILE
         const paymentPolicyId = PAYMENTPOLICY
         cloud_imgFR.push('https://images.xbunnysextoys.com/products/livraison-xbunny.webp')
+        cloud_imgFR.push('https://images.xbunnysextoys.com/livraison/cadeau-surprise.webp')
         
         // contenu du body à envoyer à API eBay pour INVENTORY
         const payloadInventoryFR = 
@@ -344,6 +348,7 @@ async function createDataItems(newListing, supplier){
         const shippingProfile = SHIPPINGPROFILE
         const paymentPolicyId = PAYMENTPOLICY
         cloud_imgFR.push('https://images.xbunnysextoys.com/products/livraison-xbunny.webp')
+        cloud_imgFR.push('https://images.xbunnysextoys.com/livraison/cadeau-surprise.webp')
         const payloadInventoryFR = 
             {
               availability: {
