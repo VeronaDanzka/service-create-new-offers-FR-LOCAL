@@ -263,6 +263,9 @@ async function createDataItems(newListing, supplier){
   if(supplier === SUPPLIER_1){
     for ( const { sku, category_id, weight, dealer_price, stock, brand, ean, color, materials, length, insertable, diameter, circumference, gender, liquidvolumn, size, cloud_img } of newListing){
       try {
+        if (brand == null || typeof brand !== 'string') {
+          console.log('BRAND INVALIDE:', sku, brand);
+        }
         if (stock === 0 || restrictedBrand.includes(brand.toUpperCase())){ 
           continue};
         const { categories } = await getCategoryChainForProduct(category_id)
