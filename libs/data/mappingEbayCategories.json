@@ -36,6 +36,36 @@
     "BaseUS": "Water" 
   },
   {
+    "category_idFR": 176995,
+    "category_idUS": 176995,
+    "rawPathFR": "Boules brésiliennes Lubrifiants Pharmacie",
+    "rawPathUS": "Brazilian Balls Lubes Sex drugstore",
+    "TypeFR": null,
+    "TypeUS": null,
+    "BaseFR": "Eau",
+    "BaseUS": "Water"
+  },
+  {
+    "category_idFR": 176995,
+    "category_idUS": 176995,
+    "rawPathFR": "Base en silicone Lubrifiants Pharmacie",
+    "rawPathUS": "Silicone-based Lubes Sex drugstore",
+    "TypeFR": null,
+    "TypeUS": null,
+    "BaseFR": "Silicone",
+    "BaseUS": "Silicone"
+  },
+  {
+    "category_idFR": 176995,
+    "category_idUS": 176995,
+    "rawPathFR": "Anaux avec relaxant Lubrifiants Pharmacie",
+    "rawPathUS": "Anal with Relaxant Lubes Sex drugstore",
+    "TypeFR": null,
+    "TypeUS": null,
+    "BaseFR": "Eau",
+    "BaseUS": "Water"
+  },
+  {
     "category_idFR": 176993,
     "category_idUS": 176993,
     "rawPathFR": "Extenseur de pénis mécanique Accessoires de pénis Jouets sexuels pour hommes Sextoys",
@@ -126,6 +156,14 @@
   {
     "category_idFR": 176998,
     "category_idUS": 176998,
+    "rawPathFR": "Capsules Stimulants pour garçons Pharmacie",
+    "rawPathUS": "Capsules Stimulants for men Sex drugstore",
+    "TypeFR": "Extraits de plantes",
+    "TypeUS": "Plant Extracts"
+  },
+  {
+    "category_idFR": 176998,
+    "category_idUS": 176998,
     "rawPathFR": "Vagin vierge Stimulants pour les femmes Pharmacie",
     "rawPathUS": "Virgin vagina Stimulants for women Sex drugstore",
     "TypeFR": "Extraits de plantes",
@@ -183,6 +221,14 @@
     "category_idFR": 176998,
     "category_idUS": 176998,
     "rawPathFR": "Stimulants pour garçons Pharmacie",
+    "rawPathUS": "Delayers Stimulants for men Sex drugstore",
+    "TypeFR": "Extraits de plantes",
+    "TypeUS": "Plant Extracts"
+  },
+  { 
+    "category_idFR": 176998,
+    "category_idUS": 176998,
+    "rawPathFR": "Retardants Stimulants pour garçons Pharmacie",
     "rawPathUS": "Delayers Stimulants for men Sex drugstore",
     "TypeFR": "Extraits de plantes",
     "TypeUS": "Plant Extracts"
@@ -400,6 +446,14 @@
     "TypeUS": "Kit"
   },
   {
+    "category_idFR": 176997,
+    "category_idUS": 176997,
+    "rawPathFR": "Kits de couple Articles assortis",
+    "rawPathUS": "Couple kits Assorted items",
+    "TypeFR": "Kit",
+    "TypeUS": "Kit"
+  },
+  {
     "category_idFR": 176996,
     "category_idUS": 176996,
     "rawPathFR": "Jeux de cartes Jeux",
@@ -480,6 +534,14 @@
     "TypeUS": "Masturbator"
   },
   {
+    "category_idFR": 176997,
+    "category_idUS": 176997,
+    "rawPathFR": "Pour clitoris Stimulateurs Jouets pour femmes Sextoys",
+    "rawPathUS": "For Clit Stimulators Toys for women Lovetoys",
+    "TypeFR": "Masturbateur",
+    "TypeUS": "Masturbator"
+  },
+  {
     "category_idFR": 260750,
     "category_idUS": 260750,
     "rawPathFR": "Vibromasseurs anaux Anal Sextoys",
@@ -525,6 +587,14 @@
     "category_idUS": 176994,
     "rawPathFR": "Sans latex Présesrvatifs",
     "rawPathUS": "Latex free Condoms",
+    "TypeFR": "Préservatif masculin",
+    "TypeUS": "Male Condom"
+  },
+  {
+    "category_idFR": 176994,
+    "category_idUS": 176994,
+    "rawPathFR": "Adaptez-le à votre taille exacte. Toutes les tailles Présesrvatifs",
+    "rawPathUS": "Adapt it to your exact size. All sizes Condoms",
     "TypeFR": "Préservatif masculin",
     "TypeUS": "Male Condom"
   },
@@ -579,6 +649,22 @@
     "TypeUS": "Bullet Vibrator"
   },
   {
+    "category_idFR": 260749,
+    "category_idUS": 260749,
+    "rawPathFR": "Balles vibrantes Stimulateurs Jouets pour femmes Sextoys",
+    "rawPathUS": "BULLETS Stimulators Toys for women Lovetoys",
+    "TypeFR": "Vibrateur à balle",
+    "TypeUS": "Bullet Vibrator"
+  },
+  { 
+    "category_idFR": 260749,
+    "category_idUS": 260749,
+    "rawPathFR": "Œufs vibrants Stimulateurs Jouets pour femmes Sextoys",
+    "rawPathUS": "Balls, eggs and bullets Stimulators Toys for women Lovetoys",
+    "TypeFR": "Vibrateur à balle",
+    "TypeUS": "Bullet Vibrator"
+  },
+  {
     "category_idFR": 180945,
     "category_idUS": 180945,
     "rawPathFR": "Coupe vaginale Pharmacie",
@@ -629,10 +715,28 @@
     "TypeUS": "Plant Extracts"
   },
   {
+    "category_idFR": 176998,
+    "category_idUS": 176998,
+    "rawPathFR": "Capsules Compléments alimentaires Pharmacie",
+    "rawPathUS": "Capsules Food complements Sex drugstore",
+    "TypeFR": "Extraits de plantes",
+    "TypeUS": "Plant Extracts"
+  },
+  {
     "category_idFR": 176995,
     "category_idUS": 176995,
     "rawPathFR": "Anal - sprays ou crèmes relaxants Lubrifiants Pharmacie",
     "rawPathUS": "Anal - relaxing sprays or creams Lubes Sex drugstore",
+    "TypeFR": null,
+    "TypeUS": null,
+    "BaseFR": "Hybride",
+    "BaseUS": "Hybrid"
+  },
+  {
+    "category_idFR": 176995,
+    "category_idUS": 176995,
+    "rawPathFR": "Anal Lubrifiants Pharmacie",
+    "rawPathUS": "Anal Lubes Sex drugstore",
     "TypeFR": null,
     "TypeUS": null,
     "BaseFR": "Hybride",
@@ -837,6 +941,14 @@
   {
     "category_idFR": 176996,
     "category_idUS": 176996,
+    "rawPathFR": "Mode bdsm Articles bdsm Fétichisme",
+    "rawPathUS": "Bdsm fashion Bdsm items Sm & bondage",
+    "TypeFR": "Entrave",
+    "TypeUS": "Restraint"
+  },
+  {
+    "category_idFR": 176996,
+    "category_idUS": 176996,
     "rawPathFR": "Bouchon anal bdsm Articles bdsm Fétichisme",
     "rawPathUS": "Bdsm anal plug Bdsm items Sm & bondage",
     "TypeFR": "Queue anale",
@@ -853,6 +965,14 @@
     "category_idUS": 260750,
     "rawPathFR": "Perles anales Boules chinoises Jouets pour femmes Sextoys",
     "rawPathUS": "Anal beads Chinese balls Toys for women Lovetoys",
+    "TypeFR": "Exerciseur Kegel",
+    "TypeUS": "Kegel Exerciser"
+  },
+  {
+    "category_idFR": 260750,
+    "category_idUS": 260750,
+    "rawPathFR": "Perles anales Anal Sextoys",
+    "rawPathUS": "Anal Beads Anal Lovetoys",
     "TypeFR": "Exerciseur Kegel",
     "TypeUS": "Kegel Exerciser"
   },
@@ -891,8 +1011,24 @@
   {
     "category_idFR": 176996,
     "category_idUS": 176996,
+    "rawPathFR": "Colliers Esclavage Fétichisme",
+    "rawPathUS": "Necklaces Bondage Sm & bondage",
+    "TypeFR": "Entrave",
+    "TypeUS": "Restraint"
+  },
+  {
+    "category_idFR": 176996,
+    "category_idUS": 176996,
     "rawPathFR": "Masques / masques pour les yeux Esclavage Fétichisme",
     "rawPathUS": "Blindfolds / masks Bondage Sm & bondage",
+    "TypeFR": "Masque",
+    "TypeUS": "Head Mask"
+  },
+  {
+    "category_idFR": 176996,
+    "category_idUS": 176996,
+    "rawPathFR": "Masque Esclavage Fétichisme",
+    "rawPathUS": "Mask Bondage Sm & bondage",
     "TypeFR": "Masque",
     "TypeUS": "Head Mask"
   },
@@ -917,6 +1053,16 @@
     "category_idUS": 176995,
     "rawPathFR": "Nettoyage intime Désinfection et entretien Pharmacie",
     "rawPathUS": "Intimate cleaning Disinfection and maintenance Sex drugstore",
+    "TypeFR": null,
+    "TypeUS": null,
+    "BaseFR": "Hybride",
+    "BaseUS": "Hybrid"
+  },
+  {
+    "category_idFR": 176995,
+    "category_idUS": 176995,
+    "rawPathFR": "Désinfection et entretien Pharmacie",
+    "rawPathUS": "Disinfection and maintenance Sex drugstore",
     "TypeFR": null,
     "TypeUS": null,
     "BaseFR": "Hybride",
@@ -983,6 +1129,14 @@
     "category_idUS": 180944,
     "rawPathFR": "Lotion pour le corps Pharmacie",
     "rawPathUS": "Body lotion Sex drugstore",
+    "TypeFR": "Toilette intime féminine",
+    "TypeUS": "Feminine Care Wash"
+  },
+  {
+    "category_idFR": 180944,
+    "category_idUS": 180944,
+    "rawPathFR": "Hydratant pour cheveux Pharmacie",
+    "rawPathUS": "Hair Moisturizer Sex drugstore",
     "TypeFR": "Toilette intime féminine",
     "TypeUS": "Feminine Care Wash"
   },
@@ -1091,6 +1245,7 @@
     "TypeUS": "Cleaner",
     "BaseFR": "Hybride"
   },
+  
   {
     "category_idFR": 176996,
     "category_idUS": 176996,
@@ -1132,6 +1287,14 @@
     "TypeUS": "Bra Accessory"
   },
   {
+    "category_idFR": 163593,
+    "category_idUS": 163593,
+    "rawPathFR": "Doublures Accessoires Lingerie femme Mode et lingerie",
+    "rawPathUS": "Nipple covers Accesories Women's lingerie Fashion & lingerie",
+    "TypeFR": "Accessoire de soutien-gorge",
+    "TypeUS": "Bra Accessory"
+  },
+  {
     "category_idFR": 176996,
     "category_idUS": 176996,
     "rawPathFR": "Fouets à coups doux Articles bdsm Fétichisme",
@@ -1160,6 +1323,22 @@
     "category_idUS": 176997,
     "rawPathFR": "Stimulateur à air  pas de vibrations Stimulateurs Jouets pour femmes Sextoys",
     "rawPathUS": "Air stimulator without vibratión Stimulators Toys for women Lovetoys",
+    "TypeFR": "Masturbateur",
+    "TypeUS": "Masturbator"
+  },
+  {  
+    "category_idFR": 176997,
+    "category_idUS": 176997,
+    "rawPathFR": "Masseuses Stimulateurs Jouets pour femmes Sextoys",
+    "rawPathUS": "Massagers Stimulators Toys for women Lovetoys",
+    "TypeFR": "Masturbateur",
+    "TypeUS": "Masturbator"
+  },
+  {
+    "category_idFR": 176997,
+    "category_idUS": 176997,
+    "rawPathFR": "Doigts Vibrateurs Vibrateurs Sextoys",
+    "rawPathUS": "Finger Vibrators Vibrators Lovetoys",
     "TypeFR": "Masturbateur",
     "TypeUS": "Masturbator"
   },
@@ -1511,10 +1690,28 @@
     "TypeUS": "Head Mask"
   },
   {
+    "category_idFR": 176996,
+    "category_idUS": 176996,
+    "rawPathFR": "Masque Accessoires Lingerie femme Mode et lingerie",
+    "rawPathUS": "Mask Accesories Women's lingerie Fashion & lingerie",
+    "TypeFR": "Masque",
+    "TypeUS": "Head Mask"
+  },
+  {
     "category_idFR": 179317,
     "category_idUS": 63854,
     "rawPathFR": "Culotte haute Culotte sexy Lingerie sexy Lingerie femme Mode et lingerie",
     "rawPathUS": "Tall panties Sexy panties Sexy lingerie Women's lingerie Fashion & lingerie",
+    "TypeFR": "Boyshort/boxershort",
+    "TypeUS": null,
+    "StyleUS": "Boxer Shorts",
+    "SizeTypeUS": "Regular"
+  },
+  { 
+    "category_idFR": 179317,
+    "category_idUS": 63854,
+    "rawPathFR": "Slips Culotte sexy Lingerie sexy Lingerie femme Mode et lingerie",
+    "rawPathUS": "Briefs Sexy panties Sexy lingerie Women's lingerie Fashion & lingerie",
     "TypeFR": "Boyshort/boxershort",
     "TypeUS": null,
     "StyleUS": "Boxer Shorts",
@@ -1553,6 +1750,14 @@
     "rawPathUS": "Cold or heat effect Condoms",
     "TypeFR": "Préservatif masculin",
     "TypeUS": "Male Condom"
+  },
+  {
+    "category_idFR": 176994,
+    "category_idUS": 176994,
+    "rawPathFR": "Pour femme Présesrvatifs",
+    "rawPathUS": "For women Condoms",
+    "TypeFR": "Préservatif féminin",
+    "TypeUS": "Women Condom"
   },
   {
     "category_idFR": 11530,
@@ -1662,6 +1867,14 @@
     "TypeUS": "Male Condom"
   },
   {
+    "category_idFR": 176994,
+    "category_idUS": 176994,
+    "rawPathFR": "Toutes les tailles Présesrvatifs",
+    "rawPathUS": "All sizes Condoms",
+    "TypeFR": "Préservatif masculin",
+    "TypeUS": "Male Condom"
+  },
+  {
     "category_idFR": 179320,
     "category_idUS": 11507,
     "rawPathFR": "Lingerie homme Mode et lingerie",
@@ -1760,6 +1973,16 @@
     "StyleUS": "Brief",
     "SizeTypeUS": "Regular"
   },
+  { "category_idFR": 11507,
+    "category_idUS": 11507,
+    "rawPathFR": "Bikinis Lingerie homme Mode et lingerie",
+    "rawPathUS": "Bikinis Men’s underwear Fashion & lingerie",
+    "TypeFR": "Sous-vêtement",
+    "TypeUS": "Underwear",
+    "StyleFR": "Caleçon",
+    "StyleUS": "Brief",
+    "SizeTypeUS": "Regular"
+  },
   {
     "category_idFR": 176996,
     "category_idUS": 176996,
@@ -1789,6 +2012,16 @@
     "category_idUS": 176995,
     "rawPathFR": "Distributeur de lubrifiant Lubrifiants Pharmacie",
     "rawPathUS": "Lubricant dispenser Lubes Sex drugstore",
+    "TypeFR": null,
+    "TypeUS": null,
+    "BaseFR": "Eau",
+    "BaseUS": "Water"
+  },
+  {
+    "category_idFR": 176995,
+    "category_idUS": 176995,
+    "rawPathFR": "Bio Bio Lubrifiants Pharmacie",
+    "rawPathUS": "Organic Bio Lubes Sex drugstore",
     "TypeFR": null,
     "TypeUS": null,
     "BaseFR": "Eau",
@@ -1874,6 +2107,14 @@
     "TypeUS": "Male Condom"
   },
   {
+    "category_idFR": 176994,
+    "category_idUS": 176994,
+    "rawPathFR": "Toutes les tailles de boîtes Présesrvatifs",
+    "rawPathUS": "All box sizes Condoms",
+    "TypeFR": "Préservatif masculin",
+    "TypeUS": "Male Condom"
+  },
+  {
     "category_idFR": 260752,
     "category_idUS": 260752,
     "rawPathFR": "Coussins sexuels Fétichisme",
@@ -1912,6 +2153,13 @@
     "category_idUS": 260749,
     "rawPathFR": "Vibromasseurs à succion à ondes de pression Vibrateurs Sextoys",
     "rawPathUS": "Pressure wave sucking vibrators Vibrators Lovetoys",
+    "TypeFR": "Vibrateur à succion",
+    "TypeUS": "Suction Vibrator"
+  },{
+    "category_idFR": 260749,
+    "category_idUS": 260749,
+    "rawPathFR": "Sucer Vagin / Clitoris Stimulateurs Jouets pour femmes Sextoys",
+    "rawPathUS": "Sucking Vagina / Clitoris Stimulators Toys for women Lovetoys",
     "TypeFR": "Vibrateur à succion",
     "TypeUS": "Suction Vibrator"
   },
@@ -1963,6 +2211,15 @@
     "category_idUS": 63867,
     "rawPathFR": "Micro-bikini Maillots de bain Lingerie femme Mode et lingerie",
     "rawPathUS": "Micro bikini Swimwear Women's lingerie Fashion & lingerie",
+    "TypeFR": "Bikini",
+    "TypeUS": "Bikini",
+    "SizeTypeUS": "Regular"
+  },
+  {
+    "category_idFR": 63867,
+    "category_idUS": 63867,
+    "rawPathFR": "Bikinis Maillots de bain Lingerie femme Mode et lingerie",
+    "rawPathUS": "Bikinis Swimwear Women's lingerie Fashion & lingerie",
     "TypeFR": "Bikini",
     "TypeUS": "Bikini",
     "SizeTypeUS": "Regular"
@@ -2136,6 +2393,14 @@
     "category_idUS": 176996,
     "rawPathFR": "Balançoires / meubles Sextoys",
     "rawPathUS": "Swings Lovetoys",
+    "TypeFR": "Balancelle sexuelle",
+    "TypeUS": "Sex Swing"
+  },
+  {
+    "category_idFR": 176996,
+    "category_idUS": 176996,
+    "rawPathFR": "Oscillations Esclavage Fétichisme",
+    "rawPathUS": "Swings Bondage Sm & bondage",
     "TypeFR": "Balancelle sexuelle",
     "TypeUS": "Sex Swing"
   },

@@ -48,28 +48,28 @@ const {
 // }
 
 
-async function getCategoryChainForProduct(categoryName) {
-  // CTE récursive pour remonter dans la table category
-  // en partant de name = categoryName
+async function getCategoryChainForProduct(categoryId) {
   const requestCat = `
-    WITH RECURSIVE cat_path (id, name, parent_name, depth) AS (
-      SELECT id, name, parent_name, 1
-        FROM category_${SUPPLIER_BASE}
-       WHERE name = $1
-      UNION ALL
-      SELECT c.id, c.name, c.parent_name, cp.depth + 1
-        FROM category_${SUPPLIER_BASE} AS c
-        JOIN cat_path             AS cp
-          ON c.name = cp.parent_name
-    )
-    SELECT id, name, parent_name
-      FROM cat_path
-     ORDER BY depth;
-  `;
-  const categories = await sql([requestCat], categoryName)
+    WITH RECURSIVE cat_path (id, parent_id, depth) AS (
+      SELECT id, parent_id, 1
+      FROM category_${SUPPLIER_BASE}
+      WHERE id = $1
 
+      UNION ALL
+
+      SELECT c.id, c.parent_id, cp.depth + 1
+      FROM category_${SUPPLIER_BASE} c
+      JOIN cat_path cp ON c.id = cp.parent_id
+    )
+    SELECT id
+    FROM cat_path
+    ORDER BY depth;
+  `;
+
+  const categories = await sql([requestCat], categoryId);
   return { categories };
 }
+
 async function createDataItems(newListing, supplier){
   const payloadsInventoryArrayD = []
   const payloadsOffersArrayD = []
@@ -85,8 +85,8 @@ async function createDataItems(newListing, supplier){
             categories.map(async category => {
               const requestCat = `SELECT name, lang
                             FROM category_${SUPPLIER_BASE}_translate
-                            WHERE category_name = $1;`;
-              const translations = await sql([requestCat],category.name);
+                            WHERE category_id = $1;`;
+              const translations = await sql([requestCat],category.id);
               return {
                   translations
               };
@@ -111,7 +111,7 @@ async function createDataItems(newListing, supplier){
             .join(' ');
         const matchEbayCat = mappingEbayCategories.find(data => data.rawPathFR === catalogRawPathFR)
         const requestCat = `SELECT name FROM category_${SUPPLIER_BASE}_translate
-                          WHERE category_name = $1
+                          WHERE category_id = $1
                             AND lang = 'fr'`;
         const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
@@ -142,6 +142,7 @@ async function createDataItems(newListing, supplier){
         const itemBrand = realBrand.find(b => brand.includes(b)) ?? brand;
         const normalizedBrand = normalizeWords(itemBrand);
         const colorFR = colorListFR[color]
+        if(colorFR && colorFR === 'Rose') continue; // Exclude pink items
         const quantity = stock > 5 ? 5 : stock
         const skuFR = sku + `-${SUPPLIER_BASE}-FR-LOCAL`
         const fabricantGarantyFR = "2 ans"
@@ -273,8 +274,8 @@ async function createDataItems(newListing, supplier){
             categories.map(async category => {
               const requestCat = `SELECT name, lang
                             FROM category_${SUPPLIER_BASE}_translate
-                            WHERE category_name = $1;`;
-              const translations = await sql([requestCat], category.name);
+                            WHERE category_id = $1;`;
+              const translations = await sql([requestCat], category.id);
               return {
                   translations
               };
@@ -311,7 +312,7 @@ async function createDataItems(newListing, supplier){
             .join(' ');
         const matchEbayCat = mappingEbayCategories.find(data => data.rawPathFR === catalogRawPathFR)
         const requestCat = `SELECT name FROM category_${SUPPLIER_BASE}_translate
-                          WHERE category_name = $1
+                          WHERE category_id = $1
                             AND lang = 'fr'`;
         const rowsCats = await sql([requestCat], category_id);
         const categoryFR = rowsCats.length > 0 ? rowsCats[0].name : '';
@@ -347,6 +348,7 @@ async function createDataItems(newListing, supplier){
         const itemBrand = realBrand.find(b => brand.includes(b)) ?? brand;
         const normalizedBrand = normalizeWords(itemBrand);
         const colorFR = colorListXFR[color]
+        if(colorFR && colorFR === 'Rose') continue; // Exclude pink items
         const quantity = stock > 5 ? 5 : stock
         const skuFR = sku + `-${SUPPLIER_1}-FR-LOCAL`
         const fabricantGarantyFR = "2 ans"
