@@ -1,11 +1,11 @@
 // ---------- config calculate shipping pricing Dreamlove & Xtrader by weight ------------
-const deliveryD = 7.62;
-const delivery500D = 7.62;
-const delivery1000D = 7.62;
-const delivery2000D = 12.13;
-const delivery5000D = 22.39;
+const deliveryD = 8.08;
+const delivery500D = 8.08;
+const delivery1000D = 8.08;
+const delivery2000D = 12.85;
+const delivery5000D = 23.73;
 
-const deliveryX = 7.63;
+const deliveryX = 7.77;
 const delivery500X = 8.48;
 const delivery1000X = 9.34;
 const delivery1760X = 10.19;
